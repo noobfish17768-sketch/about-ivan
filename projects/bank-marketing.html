@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Analytics Dashboard | Ivan Adrian Prastya</title>
+<meta name="description" content="Customer Analytics Dashboard untuk menganalisis performa term deposit campaign menggunakan data, SQL/BigQuery, dan Looker Studio.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><link rel="stylesheet" href="../css/style.css">    <script src="../js/analytics.js"></script>
+</head>
+<body class="case-page">
+<nav class="navbar"><a class="logo" href="../index.html">IVAN<span>.</span></a><a class="back-link" href="../index.html#projects"><i class="fa-solid fa-arrow-left"></i> Back to Projects</a></nav>
+<main class="case-main">
+<div class="case-hero">
+    <div class="project-label">DATA ANALYTICS CASE STUDY</div>
+    <h1>📊 Customer Analytics Dashboard</h1>
+    <p>Dashboard analisis campaign term deposit untuk memantau customer, subscription rate, performa campaign, serta pola berdasarkan segmentasi customer dan aktivitas kontak.</p>
+    <div class="tags"><span>BigQuery</span><span>SQL</span><span>Looker Studio</span><span>Excel</span></div>
+</div>
+<section class="case-section">
+    <h2>01. The Goal</h2>
+    <p>Mengubah data campaign menjadi dashboard yang lebih mudah dibaca sehingga metrik utama, segmentasi customer, dan performa campaign bisa dipantau dari satu tampilan.</p>
+</section>
+<section class="case-section">
+    <h2>02. Analysis Workflow</h2>
+    <div class="case-list">
+        <div>01 · <b>Raw Dataset</b><span>Memahami struktur data customer, campaign, contact, dan hasil subscription.</span></div>
+        <div>02 · <b>Cleaning & Transformation</b><span>Menyiapkan field turunan untuk segmentasi dan analisis, termasuk age group, month order, dan subscription flag.</span></div>
+        <div>03 · <b>SQL / BigQuery</b><span>Menggunakan query untuk agregasi KPI, segmentasi, dan validasi hasil analisis.</span></div>
+        <div>04 · <b>Looker Studio</b><span>Menyusun KPI, filter, chart, dan tabel agar hasil analisis lebih mudah dieksplorasi.</span></div>
+    </div>
+    <div class="sql-box">
+        <code>SELECT<br>
+        &nbsp;&nbsp;month,<br>
+        &nbsp;&nbsp;COUNT(*) AS total_contacts,<br>
+        &nbsp;&nbsp;COUNTIF(subscribed_flag = 1) AS subscribed,<br>
+        &nbsp;&nbsp;SAFE_DIVIDE(COUNTIF(subscribed_flag = 1), COUNT(*)) AS subscription_rate<br>
+        FROM `projectbank-503013.Bank.Term_Deposit`<br>
+        GROUP BY month<br>
+        ORDER BY month_order;</code>
+    </div>
+</section>
+<section class="case-section">
+    <h2>03. Dashboard Preview</h2>
+    <div class="case-gallery single">
+        <img src="../assets/customer-analytics-dashboard.png" alt="Customer Analytics Dashboard - Bank Marketing Campaign">
+    </div>
+    <p style="margin-top:16px;font-size:.8rem;color:var(--gray)">Screenshot dashboard asli dari project. Tampilan mencakup KPI utama, filter, segmentasi customer, tren subscription, campaign performance, dan call duration.</p>
+</section>
+<section class="case-section">
+    <h2>04. Dashboard Highlights</h2>
+    <div class="insight-grid">
+        <div class="insight-card"><strong>45,211 Total Customer</strong><span>Total customer yang tampil pada dashboard.</span></div>
+        <div class="insight-card"><strong>5,289 Subscribed</strong><span>Jumlah customer yang tercatat melakukan subscription.</span></div>
+        <div class="insight-card"><strong>11.70% Subscription Rate</strong><span>KPI ringkas untuk melihat proporsi customer yang melakukan subscription.</span></div>
+        <div class="insight-card"><strong>66+ Age Group</strong><span>Segmen usia 66+ terlihat memiliki subscription rate tertinggi pada visual age group.</span></div>
+        <div class="insight-card"><strong>Call Duration</strong><span>Dashboard membandingkan subscription rate berdasarkan durasi panggilan.</span></div>
+        <div class="insight-card"><strong>Campaign Performance</strong><span>Performa campaign dibandingkan berdasarkan attempt, customer, subscription, dan rate.</span></div>
+    </div>
+</section>
+<section class="case-section">
+    <h2>05. What This Project Shows</h2>
+    <p>Project ini menunjukkan workflow end-to-end dari data mentah sampai dashboard: cleaning dan transformasi, query SQL/BigQuery, validasi KPI, lalu visualisasi interaktif untuk membantu membaca pola customer dan performa campaign.</p>
+</section>
+<a class="btn-primary case-cta" href="../index.html#contact">Discuss a Data Project <i class="fa-solid fa-arrow-right"></i></a>
+</main></body></html>
